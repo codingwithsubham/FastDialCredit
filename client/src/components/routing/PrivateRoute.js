@@ -11,7 +11,7 @@ const PrivateRoute = ({
   <Route
     {...rest}
     render={props =>
-      !isAuthenticated? (
+      !isAuthenticated && !localStorage.token? (
         <Redirect to='/' />
       ) : (
         <Component {...props} />

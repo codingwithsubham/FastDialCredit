@@ -91,7 +91,7 @@ const Login = ({
         <Fragment>
           <div className="welcome-screen">
             <div className="bg-login"/>
-            <img src={require('../../static/logo.png')} alt="" className="logo fade"/>
+            <img src={require('../../static/scr.png')} alt="" className="anime fade"/>
             <div className="welcome-texts insta-an">
               <div className="pre-title">Welcome to,</div>
               <div className="title">Fastdial Credit Score</div>

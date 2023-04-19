@@ -16,7 +16,7 @@ const Navbar = ({
 }) => {
   const [navStyle, setNavStyle] = useState("");
   const listenScrollEvent = (e) => {
-    if (window.scrollY > 1) {
+    if (window.scrollY > 0) {
       setNavStyle("stickey");
     } else {
       setNavStyle("");
@@ -59,7 +59,7 @@ const Navbar = ({
                 </div>
               ) : (
                 <img
-                  src={require("../../static/icon.png")}
+                  src={require("../../static/scr.png")}
                   alt=""
                   className="insta-slide-up"
                 />

@@ -44,7 +44,7 @@ const Sidebar = ({
           <div className="sidebar-header">
             <div className="title">
               <img
-                src={require("../../static/icon.png")}
+                src={require("../../static/scr.png")}
                 alt=""
                 className="logo fade"
               />
