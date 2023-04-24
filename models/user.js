@@ -21,12 +21,22 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true
   },
-  address: {
+  subscription: {
+    susbsType: {
+      type: String,
+    },
+    subsEndDate: {
+      type: String,
+    },
+  },
+  kycData: {
     type: Object,
   },
-  refferalId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
+  kyc: {
+    type: Object,
+  },
+  bankDetails: {
+    type: Object,
   },
 });
 

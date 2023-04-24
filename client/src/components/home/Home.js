@@ -5,7 +5,7 @@ import { loadUser } from "../../actions/auth";
 import { openSidebar } from "../../actions/layout";
 import ReactStoreIndicator from "react-score-indicator";
 
-const Home = ({ auth: { user } }) => {
+const Home = ({ auth: { user }, loadUser }) => {
   useEffect(() => {
     loadUser();
   }, [loadUser]);

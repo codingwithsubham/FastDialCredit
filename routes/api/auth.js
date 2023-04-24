@@ -3,11 +3,12 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const auth = require("../../middleware/auth");
 const fs = require("fs");
-const fileName = "./config/appConfig.json";
-const file = require("../../config/appConfig.json");
+//const fileName = "./config/appConfig.json";
+//const file = require("../../config/appConfig.json");
 const User = require("../../models/user");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
+const { default: axios } = require("axios");
 
 const {
   SERVER_ERROR,
@@ -23,6 +24,7 @@ const {
   MOBILE,
   MOBILE_REQUIRED,
 } = require("../../common/constant/constants");
+const { HEADER } = require("../../common/constant/api-constants");
 
 // @route POST api/auth
 // @desc Register A User
@@ -168,6 +170,77 @@ router.post("/update-user/:type", auth, async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
+
+// @route POST api/auth/kyc/init
+// @desc init Kyc Verification
+// @access Private
+router.post("/kyc/init", auth, async (req, res) => {
+  try {
+    const { aadhaar, pan } = req.body;
+    let user = await User.findById(req.user.id).select("-password");
+    const postData = {
+      aadhaarNumber: aadhaar
+    };
+    const response = await axios.post(
+      "https://api.emptra.com/aadhaarVerification/requestOtp",
+      postData,
+      {
+        headers: HEADER
+      }
+    );
+    if(response?.data?.result?.success){
+      user.kyc = {
+        aadhaar,
+        pan,
+        status: "pending",
+        client_id: response?.data?.result?.data?.client_id
+      }
+      await user.save();
+      return res.json(user);
+    } else {
+      console.log(response.data);
+      res.status(STATUS_CODE_400).send("Something went wrong at Aadhar Server !!");
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
+// @route POST api/auth/kyc/verify
+// @desc init Kyc Verification
+// @access Private
+router.post("/kyc/verify", auth, async (req, res) => {
+  try {
+    const { otp, client_id } = req.body;
+    let user = await User.findById(req.user.id).select("-password");
+    const postData = { client_id, otp };
+    const response = await axios.post(
+      "https://api.emptra.com/aadhaarVerification/submitOtp",
+      postData,
+      {
+        headers: HEADER
+      }
+    );
+    if(response?.data?.result?.success){
+      user.kyc ={
+        ...user.kyc,
+        status: "verified",
+        client_id: ""
+      }
+      user.kycData = response?.data?.result?.data;
+      await user.save();
+      return res.json(user);
+    } else {
+      console.log(response.data);
+      res.status(STATUS_CODE_400).send("Something went wrong at Aadhar Server !!");
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(STATUS_CODE_500).send(SERVER_ERROR);
   }
 });
 

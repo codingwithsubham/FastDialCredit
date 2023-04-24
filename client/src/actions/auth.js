@@ -95,3 +95,36 @@ export const updateUserBank = (body) => async (dispatch) => {
   }
 };
 
+//initKycVerification
+export const initKycVerification = (body) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth/kyc/init", body, API_CONFIG);
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data,
+    });
+    dispatch(setAlert("OTP Sent Successfully", "success"));
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch({
+      type: SETTINGS_LOADING_ERROR,
+    });
+  }
+};
+
+//finishKycVerification
+export const finishKycVerification = (body) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth/kyc/verify", body, API_CONFIG);
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data,
+    });
+    dispatch(setAlert("OTP Verified Successfully", "success"));
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch({
+      type: SETTINGS_LOADING_ERROR,
+    });
+  }
+};

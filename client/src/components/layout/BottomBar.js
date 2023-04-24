@@ -20,14 +20,14 @@ const BottomBar = ({auth: { isAuthenticated, user }, loadUser}) => {
             <div className="btm-txt">Taken</div>
           </Link>
           <Link to="/">
-            <i className="fa fa-rupee"></i>
-            <div className="btm-txt">Timeline</div>
+            <i className="fa fa-plus"></i>
+            <div className="btm-txt">Post</div>
           </Link>
           <Link to="/">
             <i className="fa fa-bank"></i>
-            <div className="btm-txt">Requested</div>
+            <div className="btm-txt">Given</div>
           </Link>
-          <Link to="/">
+          <Link to="/profile">
             <i className="fa fa-user"></i>
             <div className="btm-txt">Profile</div>
           </Link>

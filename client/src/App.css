@@ -18,7 +18,7 @@ section.container {
 }
 
 .bg-login {
-  background: linear-gradient(45deg, #FFEB3B, #E91E63);
+  background: linear-gradient(45deg, #ffeb3b, #e91e63);
   background-size: cover;
   background-position: top;
   width: 100%;
@@ -205,7 +205,7 @@ form.login-form {
   height: 100%;
   width: 20%;
   position: fixed;
-  z-index: 1;
+  z-index: 999999;
   top: 0;
   left: 0;
   background: linear-gradient(45deg, #ffd454, #ffdede);
@@ -469,7 +469,7 @@ img.anime {
   bottom: 0;
   right: 0;
   background: #ff9800;
-  z-index: 999999;
+  z-index: 999;
   box-shadow: 0px 0px 9px 2px #0000007d;
   border-radius: 5px 0px 0px 5px;
 }
@@ -511,7 +511,205 @@ h1 {
   width: 100%;
 }
 
-p {margin: 2px;}
+p {
+  margin: 2px;
+}
+
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.prfile-hdr {
+  background-image: url(https://picsum.photos/600);
+  width: 100%;
+  border-radius: 5px;
+  min-height: 200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
+  background-repeat: no-repeat;
+  background-color: #000000cc;
+}
+
+.avatar {
+  width: 30%;
+  text-align: center;
+}
+
+.avatar i {
+  font-size: 70px;
+  color: #ffeb3b;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.avatar img {
+  width: 70px;
+  color: red;
+  border: 2px solid #ffeb3b;
+  border-radius: 6px;
+  height: 70px;
+  object-fit: cover;
+  margin: 10px 0px;
+}
+
+.profile .dtls {
+  width: 60%;
+  text-align: left;
+  padding: 10px 0px;
+  color: #fff;
+  text-shadow: 0px 0px 10px #000;
+  margin: 10px 0px;
+}
+
+.profile .dtls h2 {
+  margin: 1px;
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.profile .dtls h3 {
+  margin: 1px;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.bdy-itm {
+  width: 48%;
+  display: flex;
+  height: 100px;
+  background: linear-gradient(45deg, #f44336, #ff9800);
+  margin: 0% 1%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.prfile-bdy {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.bdy-itm i {
+  font-size: 40px;
+}
+
+.login-form .re-send {
+  position: absolute;
+  color: green;
+  right: 13px;
+  margin-top: 6px;
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.edit i {
+  font-size: 18px;
+}
+
+.edit {
+  width: 90%;
+  text-align: right;
+}
+
+.kyc-data {
+  padding: 10px;
+  min-height: 180px;
+  background: #eeeeee;
+  margin: 10px 0px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.kyc-data i {
+  font-size: 60px;
+}
+
+.kyc-data p {
+  margin: 5px;
+  font-size: 15px;
+}
+
+i.danger {
+  color: #ff00006e;
+}
+
+i.success {
+  color: #4caf50b0;
+}
+
+.details {
+  width: 80%;
+  border: 2px solid #4caf50;
+  padding: 20px;
+  border-radius: 4px;
+  margin: 10px 10px 30px;
+}
+
+.details p {
+  margin: 2px;
+  font-size: 18px;
+  color: green;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details p strong {
+  color: #3f3f3f;
+}
+
+.prsnl-details {
+  width: 100%;
+}
+
+.prsnl-details p {
+  font-size: 17px;
+  color: #282828;
+}
+
+.prsnl-details p strong {
+  margin-right: 10px;
+  text-transform: capitalize;
+  color: #FF5722;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.subscribe {
+  width: 90%;
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://picsum.photos/2000");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5%;
+  background-blend-mode: darken;
+  background-color: #00000082;
+  color: #fff;
+}
+
+.subscribe i.danger {
+  font-size: 76px;
+}
 
 @media only screen and (max-width: 600px) {
   .btm-bar {
@@ -519,8 +717,8 @@ p {margin: 2px;}
     position: fixed;
     bottom: 10px;
     left: 2%;
-    background: linear-gradient(222deg, #FFC107, #FF5722);
-    z-index: 999999;
+    background: linear-gradient(222deg, #ffc107, #ff5722);
+    z-index: 999;
     box-shadow: -1px 2px 11px 0px #000000a1;
     border-radius: 12px;
     min-height: 80px;
@@ -545,7 +743,7 @@ p {margin: 2px;}
   }
   section.container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;

@@ -7,6 +7,9 @@ import Alert from "../layout/Alert";
 import ScrollToTop from "../../ScrollToTop";
 import PrivateRoute from "./PrivateRoute";
 import Home from "../home/Home";
+import Profile from "../profile/Profile";
+import RestrictedRoute from "./RestrictedRoute";
+import Subscription from "../subscription/Subscription";
 
 const Routes = ({ layout: { isSidebarOpen } }) => {
   return (
@@ -18,6 +21,9 @@ const Routes = ({ layout: { isSidebarOpen } }) => {
       <ScrollToTop />
       <Switch>
         <PrivateRoute exact path="/home" component={Home} />
+        {/* <RestrictedRoute exact path="/profile" component={Profile} /> */}
+        <PrivateRoute exact path="/profile" component={Profile} />
+        <PrivateRoute exact path="/subscribe" component={Subscription} />
         <Route component={NotFound} />
       </Switch>
     </div>
