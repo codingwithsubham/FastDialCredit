@@ -9,20 +9,18 @@ const Alert = ({ alerts }) =>
     <div key={alert.id} className="alert-container">
       {alert.alertType === "success" ? (
         <div
-          className="box-alert insta-slide"
+          className="box-alert alert-slide-down"
           style={{
-            backgroundColor: "#333333",
-            borderLeft: "10px solid rgb(5 189 12)",
+            backgroundColor: "#4CAF50",
           }}
         >
           <i className="fa fa-bell" /> {alert.msg}
         </div>
       ) : (
         <div
-          className="box-alert insta-slide"
+          className="box-alert alert-slide-down"
           style={{
-            backgroundColor: "#333333",
-            borderLeft: "10px solid #cc0000",
+            backgroundColor: "#cc0000",
           }}
         >
           <i className="fa fa-bell" /> {alert.msg}

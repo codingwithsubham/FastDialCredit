@@ -804,6 +804,25 @@ p {
   border-radius: 10px;
 }
 
+.box-alert {
+  position: fixed !important;
+  right: 10px;
+  padding: 15px 30px;
+  color: #d7d7d7;
+  border-radius: 4px;
+  top: 70px;
+  width: -webkit-fill-available;
+  z-index: 9999999999999;
+  left: 10px;
+}
+
+.box-alert i {
+  border: 2px solid;
+  padding: 5px;
+  border-radius: 50%;
+  margin: 0px 5px 0px 0px;
+}
+
 @media only screen and (max-width: 600px) {
   .feed {
     width: 100%;
@@ -847,6 +866,7 @@ p {
   .main-content {
     max-width: 600px;
     width: 600px;
+    padding: 0px;
   }
   .hme {
     width: 100%;

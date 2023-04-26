@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { openSidebar } from "../../actions/layout";
 import ReactStoreIndicator from "react-score-indicator";
-import Feeds from "../feed/Feeds";
+//import Feeds from "../feed/Feeds";
 import Ads from "../ads/Ads";
 
 const Home = ({ auth: { user }, loadUser }) => {

@@ -351,3 +351,19 @@ input[type="file"] {
     visibility: hidden;
   }
 }
+
+.alert-slide-down {
+  animation: alert-slide-down 0.5s;
+  -webkit-animation: alert-slide-down 0.5s;
+  transition: 1s;
+  position: relative;
+}
+
+@keyframes alert-slide-down {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 70px;
+  }
+}
