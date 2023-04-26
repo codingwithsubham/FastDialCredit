@@ -21,8 +21,21 @@ const Sidebar = ({
   auth: { isAuthenticated, user },
   layout: { isSidebarOpen },
   closeSidebar,
+  openSidebar
 }) => {
   const [width] = useWindowSize();
+
+  if(width >= 600){
+    if(!isSidebarOpen){
+      openSidebar();
+    }
+  }
+
+  const handleCloseSidebar = () => {
+    if(width <= 600){
+      closeSidebar();
+    }
+  }
   return (
     isAuthenticated &&
     user && (
@@ -37,7 +50,7 @@ const Sidebar = ({
       >
         <div className="sidebar-content">
           {width <= 600 && (
-            <button className="sidebar-closebtn" onClick={() => closeSidebar()}>
+            <button className="sidebar-closebtn" onClick={() => handleCloseSidebar()}>
               x
             </button>
           )}
@@ -52,25 +65,19 @@ const Sidebar = ({
             </div>
           </div>
           <div className="sidebar-links">
-            <NavLink exact to="/home" onClick={() => closeSidebar()}>
+            <NavLink exact to="/home" onClick={() => handleCloseSidebar()}>
               Home
             </NavLink>
-            <NavLink exact to="/play" onClick={() => closeSidebar()}>
-              Play
+            <NavLink exact to="/create-post" onClick={() => handleCloseSidebar()}>
+              Post
             </NavLink>
-            <NavLink exact to="/wallet" onClick={() => closeSidebar()}>
-              Wallet
-            </NavLink>
-            <NavLink exact to="/payout" onClick={() => closeSidebar()}>
-              Payout
-            </NavLink>
-            <NavLink exact to="/profile" onClick={() => closeSidebar()}>
+            {user?.role?.includes("ad") && <NavLink exact to="/create-ads" onClick={() => handleCloseSidebar()}>
+              Ads
+            </NavLink>}
+            <NavLink exact to="/profile" onClick={() => handleCloseSidebar()}>
               Profile
             </NavLink>
-            <NavLink exact to="/refferal" onClick={() => closeSidebar()}>
-              Refferal
-            </NavLink>
-            <NavLink exact to="/about" onClick={() => closeSidebar()}>
+            <NavLink exact to="/about" onClick={() => handleCloseSidebar()}>
               About
             </NavLink>
           </div>

@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { openSidebar } from "../../actions/layout";
 import ReactStoreIndicator from "react-score-indicator";
+import Feeds from "../feed/Feeds";
+import Ads from "../ads/Ads";
 
 const Home = ({ auth: { user }, loadUser }) => {
   useEffect(() => {
@@ -35,10 +37,14 @@ const Home = ({ auth: { user }, loadUser }) => {
               <strong>A</strong>Approve Request
             </div>
           </div>
-          <div className="dtls">
-            <h1>My Feed</h1>
-            <p>Let's Find Out What's Going Over?</p>
-          </div>
+        </div>
+        <div className="feed-home">
+        <h1>Sponsored</h1>
+          <p>Here are the Partner Companies tied up with Us </p>
+          <Ads />
+          {/* <h1>My Feed</h1>
+          <p>Let's Find Out What's Going Over?</p>
+          <Feeds /> */}
         </div>
       </div>
     </Fragment>

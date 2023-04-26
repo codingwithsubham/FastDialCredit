@@ -10,6 +10,8 @@ import Home from "../home/Home";
 import Profile from "../profile/Profile";
 import RestrictedRoute from "./RestrictedRoute";
 import Subscription from "../subscription/Subscription";
+import CreatePost from "../feed/CreatePost";
+import CreateAds from "../ads/CreateAds";
 
 const Routes = ({ layout: { isSidebarOpen } }) => {
   return (
@@ -21,9 +23,10 @@ const Routes = ({ layout: { isSidebarOpen } }) => {
       <ScrollToTop />
       <Switch>
         <PrivateRoute exact path="/home" component={Home} />
-        {/* <RestrictedRoute exact path="/profile" component={Profile} /> */}
-        <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/subscribe" component={Subscription} />
+        <PrivateRoute exact path="/create-ads" component={CreateAds} />
+        <RestrictedRoute exact path="/profile" component={Profile} />
+        <RestrictedRoute exact path="/create-post" component={CreatePost} />
         <Route component={NotFound} />
       </Switch>
     </div>

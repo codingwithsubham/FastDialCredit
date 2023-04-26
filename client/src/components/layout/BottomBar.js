@@ -19,7 +19,7 @@ const BottomBar = ({auth: { isAuthenticated, user }, loadUser}) => {
             <i className="fa fa-money"></i>
             <div className="btm-txt">Taken</div>
           </Link>
-          <Link to="/">
+          <Link to="/create-post">
             <i className="fa fa-plus"></i>
             <div className="btm-txt">Post</div>
           </Link>

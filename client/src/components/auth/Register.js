@@ -21,7 +21,7 @@ const Register = ({
     password: "",
     confirmPassword: "",
     age: "",
-    role: "user",
+    role: ["user"],
   });
 
   const { name, age, password, confirmPassword, mobile } = formData;
