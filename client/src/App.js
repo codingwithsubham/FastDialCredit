@@ -42,10 +42,22 @@ const App = () => {
                   <Route path="/login" component={Login} />
                   <Route exact path="/" component={Login} />
                   <Route path="/register" component={Register} />
-                  <Route exact path="/forgot-password" component={ForgotPassword} />
-        <Route exact path="/privacy-policy" component={PrivacyPolicy} />
-        <Route exact path="/terms-conditions" component={TermsConditions} />
-        <Route exact path="/about-us" component={AboutUs} />
+                  <Route
+                    exact
+                    path="/forgot-password"
+                    component={ForgotPassword}
+                  />
+                  <Route
+                    exact
+                    path="/privacy-policy"
+                    component={PrivacyPolicy}
+                  />
+                  <Route
+                    exact
+                    path="/terms-conditions"
+                    component={TermsConditions}
+                  />
+                  <Route exact path="/about-us" component={AboutUs} />
                   <Route component={Routes} />
                 </Switch>
               </div>
