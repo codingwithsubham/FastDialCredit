@@ -14,6 +14,10 @@ import Register from "./components/auth/Register";
 import Sidebar from "./components/layout/Sidebar";
 import Footer from "./components/layout/Footer";
 import BottomBar from "./components/layout/BottomBar";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import TermsConditions from "./components/pages/TermsConditions";
+import AboutUs from "./components/pages/AboutUs";
+import ForgotPassword from "./components/auth/ForgotPassword";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -38,6 +42,10 @@ const App = () => {
                   <Route path="/login" component={Login} />
                   <Route exact path="/" component={Login} />
                   <Route path="/register" component={Register} />
+                  <Route exact path="/forgot-password" component={ForgotPassword} />
+        <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+        <Route exact path="/terms-conditions" component={TermsConditions} />
+        <Route exact path="/about-us" component={AboutUs} />
                   <Route component={Routes} />
                 </Switch>
               </div>

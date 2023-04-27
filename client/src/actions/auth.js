@@ -128,3 +128,23 @@ export const finishKycVerification = (body) => async (dispatch) => {
     });
   }
 };
+
+// get user team
+export const forgotPassword = (mobile) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth/forgot-password",{mobile}, API_CONFIG);
+    dispatch(setAlert(res.data, "success"));
+  } catch (err) {
+    dispatch(setAlert("Server Error", "success"));
+  }
+};
+
+// get user team
+export const resetPassword = (password) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth/reset-password",{password}, API_CONFIG);
+    dispatch(setAlert(res.data, "success"));
+  } catch (err) {
+    dispatch(setAlert("Server Error", "success"));
+  }
+};

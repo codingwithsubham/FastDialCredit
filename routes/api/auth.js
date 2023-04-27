@@ -244,4 +244,51 @@ router.post("/kyc/verify", auth, async (req, res) => {
   }
 });
 
+// @route PUT api/auth
+// @desc Forgot Password
+// @access Private
+router.post("/forgot-password", async (req, res) => {
+  try {
+    const { mobile } = req.body;
+    //finding User
+    let user = await User.findOne({mobile});
+
+    if(!user){
+      return res.status(STATUS_CODE_400).json({ errors: [{ msg: "User Not Exists!! Plz Register !!" }] });
+    }
+    const password = "123456";
+    //changing password
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
+    await user.save();
+    return res.status(STATUS_CODE_200).send("Password Set To Default!! Please login and Change The Password !!");
+  } catch (error) {
+    console.log(error);
+    return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
+// @route PUT api/auth
+// @desc Forgot Password
+// @access Private
+router.post("/reset-password", auth, async (req, res) => {
+  try {
+    const { password } = req.body;
+    //finding User
+    let user = await User.findOne({_id: req.user.id});
+
+    if(!user){
+      return res.status(STATUS_CODE_400).json({ errors: [{ msg: "User Not Exists!! Plz Register !!" }] });
+    }
+    //changing password
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
+    await user.save();
+    return res.status(STATUS_CODE_200).send("Password Reset Successfull");
+  } catch (error) {
+    console.log(error);
+    return res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
 module.exports = router;

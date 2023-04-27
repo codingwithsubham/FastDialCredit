@@ -12,6 +12,7 @@ import RestrictedRoute from "./RestrictedRoute";
 import Subscription from "../subscription/Subscription";
 import CreatePost from "../feed/CreatePost";
 import CreateAds from "../ads/CreateAds";
+import ResetPassword from "../auth/ResetPassword";
 
 const Routes = ({ layout: { isSidebarOpen } }) => {
   return (
@@ -25,6 +26,7 @@ const Routes = ({ layout: { isSidebarOpen } }) => {
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/subscribe" component={Subscription} />
         <PrivateRoute exact path="/create-ads" component={CreateAds} />
+        <PrivateRoute exact path="/reset-password" component={ResetPassword} />
         <RestrictedRoute exact path="/profile" component={Profile} />
         <RestrictedRoute exact path="/create-post" component={CreatePost} />
         <Route component={NotFound} />

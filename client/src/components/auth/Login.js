@@ -104,6 +104,9 @@ const Login = ({
               <div className="helper-texts">
                 New User ? Click <a href="/register">here</a> for Registration.
               </div>
+              <div className="helper-texts">
+                Forgot Password ? <a href="/forgot-password">Click here</a> to Reset Password.
+              </div>
             </div>
           </div>
         </Fragment>
