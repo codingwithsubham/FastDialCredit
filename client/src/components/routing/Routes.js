@@ -13,6 +13,9 @@ import Subscription from "../subscription/Subscription";
 import CreatePost from "../feed/CreatePost";
 import CreateAds from "../ads/CreateAds";
 import ResetPassword from "../auth/ResetPassword";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import TermsConditions from "../pages/TermsConditions";
+import AboutUs from "../pages/AboutUs";
 
 const Routes = ({ layout: { isSidebarOpen } }) => {
   return (
@@ -29,6 +32,9 @@ const Routes = ({ layout: { isSidebarOpen } }) => {
         <PrivateRoute exact path="/reset-password" component={ResetPassword} />
         <RestrictedRoute exact path="/profile" component={Profile} />
         <RestrictedRoute exact path="/create-post" component={CreatePost} />
+        <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+        <Route exact path="/terms-conditions" component={TermsConditions} />
+        <Route exact path="/about-us" component={AboutUs} />
         <Route component={NotFound} />
       </Switch>
     </div>

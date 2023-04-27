@@ -26,7 +26,7 @@ const Sidebar = ({
   const [width] = useWindowSize();
 
   if(width >= 600){
-    if(!isSidebarOpen){
+    if(!isSidebarOpen && isAuthenticated){
       openSidebar();
     }
   }

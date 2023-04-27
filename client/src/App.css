@@ -810,10 +810,10 @@ p {
   padding: 15px 30px;
   color: #d7d7d7;
   border-radius: 4px;
-  top: 70px;
-  width: -webkit-fill-available;
+  top: 110px;
+  width: fit-content;
   z-index: 9999999999999;
-  left: 10px;
+  right: 10px;
 }
 
 .box-alert i {
@@ -824,6 +824,18 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
+  .box-alert {
+    position: fixed !important;
+    right: 10px;
+    padding: 15px 30px;
+    color: #d7d7d7;
+    border-radius: 4px;
+    top: 70px;
+    width: -webkit-fill-available;
+    z-index: 9999999999999;
+    left: 10px;
+  }
+  
   .feed {
     width: 100%;
   }
