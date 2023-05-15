@@ -9,6 +9,14 @@ const FeedSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  category: {
+    type: String,
+    require: true,
+  },
+  pin: {
+    type: String,
+    require: true,
+  },
   status: {
     type: String,
     require: true,
@@ -17,6 +25,9 @@ const FeedSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
     require: true,
+  },
+  additional: {
+    type: Object,
   },
 });
 

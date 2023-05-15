@@ -30,7 +30,7 @@ const CreateAds = ({ ads: { ads }, getAds, createAd }) => {
   };
 
   return (
-    <div className="crt-pst">
+    <div className="crt-pst insta-an">
       <h1>Post a Ad</h1>
       <p>Here You can Create Ads</p>
       <div className="pst-frm">

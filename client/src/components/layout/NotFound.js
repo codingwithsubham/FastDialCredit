@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 const NotFound = props => {
   return (
     <Fragment>
-      <div className='not-found'>
+      <div className='not-found insta-an'>
       <img src={require("../../static/404.gif")} alt="" />
       <h1 className='x-large text-primary'>
         <i className='fa fa-exclamation-triangle' /> No {props.msg} Found

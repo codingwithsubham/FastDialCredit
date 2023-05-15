@@ -1,4 +1,9 @@
-import { CREATE_FEED, GET_FEED, GET_FEEDS } from "../actions/types";
+import {
+  CREATE_FEED,
+  DELETE_FEED,
+  GET_FEED,
+  GET_FEEDS,
+} from "../actions/types";
 
 const initialState = {
   feed: null,
@@ -12,7 +17,12 @@ export default function (state = initialState, action) {
     case CREATE_FEED:
       return {
         ...state,
-        feeds: [ payload, ...state.feeds],
+        feeds: [payload, ...state.feeds],
+      };
+    case DELETE_FEED:
+      return {
+        ...state,
+        feeds: state.feeds.filter((x) => x._id !== payload),
       };
     case GET_FEED:
       return {

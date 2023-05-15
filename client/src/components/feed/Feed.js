@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { loadUser } from "../../actions/auth";
+import { deleteFeedById } from "../../actions/feed";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const Feed = ({ data }) => {
+const Feed = ({ data, loadUser, auth: { user }, deleteFeedById }) => {
+  useEffect(() => {
+    loadUser();
+  }, [loadUser]);
   return (
     <div className="feed">
+      {data?.user?._id === user._id && (
+        <div className="dlt" onClick={() => deleteFeedById(data._id)}>
+          <i className="fa fa-trash"></i>
+        </div>
+      )}
       <div className="row">
         <div className="pf-img">
           <i className="fa fa-user-circle"></i>
@@ -14,10 +27,28 @@ const Feed = ({ data }) => {
       </div>
       <div className="feed-bdy">Rs. {data?.amnt}/-</div>
       <div className="feed-ftr">
-        <button className="btn">Contact</button>
+        <Link to="/">
+          <i className="fa fa-phone" aria-hidden="true"></i>
+        </Link>
+        <Link to="/">
+          <i className="fa fa-handshake-o" aria-hidden="true"></i>
+        </Link>
       </div>
+      <div className="stat-lbl">{data?.status}</div>
     </div>
   );
 };
 
-export default Feed;
+Feed.propTypes = {
+  auth: PropTypes.object.isRequired,
+  loadUser: PropTypes.func.isRequired,
+  deleteFeedById: PropTypes.func.isRequired,
+};
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, {
+  loadUser,
+  deleteFeedById,
+})(Feed);

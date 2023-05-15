@@ -58,11 +58,9 @@ const Navbar = ({
                   Welcome Back!
                 </div>
               ) : (
-                <img
-                  src={require("../../static/scr.png")}
-                  alt=""
-                  className="insta-slide-up"
-                />
+                <div className="welcome insta-slide-up">
+                  Fastdial
+                </div>
               )
             ) : (
               <div style={{ textTransform: "uppercase" }}>{rawPath}</div>

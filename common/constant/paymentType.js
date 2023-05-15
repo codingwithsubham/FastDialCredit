@@ -1,0 +1,12 @@
+module.exports = {
+    TYPE: {
+        LENDER_SUB_MONTHLY: "LENDER_SUB_MONTHLY",
+        LENDER_SUB_QUATERLY: "LENDER_SUB_QUATERLY",
+        LENDER_SUB_YEARLY: "LENDER_SUB_YEARLY",
+        ECO_LENDER_SUB: "ECO_LENDER_SUB",
+        BORROWER_SUB: "BORROWER_SUB",
+        PROMOTE_SUB: "PROMOTE_SUB",
+        AD_SUB: "AD_SUB",
+    }
+  };
+  

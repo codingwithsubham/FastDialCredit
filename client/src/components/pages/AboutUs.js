@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="about-us">
+    <div className="about-us insta-an">
       <div>
         <br />
         <h2>About Us !</h2>

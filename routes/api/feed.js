@@ -13,12 +13,14 @@ const {
 router.post("/create", auth, async (req, res) => {
   const d = new Date();
   try {
-    const { amnt } = req.body;
+    const { amnt , cat } = req.body;
     const feed = new Feed({
       amnt: amnt,
       user: req.user.id,
       date: d.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
-      status: "not-filled",
+      status: "not-viewed",
+      category: cat,
+      pin: req.user.userData?.kycData?.zip,
     });
     await feed.save();
     return res.json({...feed._doc, user: req.user.userData});
@@ -59,7 +61,20 @@ router.get("/", auth, async (req, res) => {
 // @access Private
 router.get("/:id", auth, async (req, res) => {
   try {
-    const feed = await Feed.findOne({ _id: req.params.id }).sort({date: -1}).populate("user");;
+    const feed = await Feed.findOne({ _id: req.params.id }).sort({date: -1}).populate("user");
+    return res.json(feed);
+  } catch (err) {
+    console.log(err);
+    res.status(STATUS_CODE_500).send(SERVER_ERROR);
+  }
+});
+
+// @route DELETE api/feed
+// @desc DELETE a Feed
+// @access Private
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    const feed = await Feed.findOneAndDelete({ _id: req.params.id });
     return res.json(feed);
   } catch (err) {
     console.log(err);

@@ -28,13 +28,13 @@ const Routes = ({ layout: { isSidebarOpen } }) => {
       <Switch>
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/subscribe" component={Subscription} />
-        <PrivateRoute exact path="/create-ads" component={CreateAds} />
-        <PrivateRoute exact path="/reset-password" component={ResetPassword} />
+        <RestrictedRoute exact path="/create-ads" component={CreateAds} />
         <RestrictedRoute exact path="/profile" component={Profile} />
         <RestrictedRoute exact path="/create-post" component={CreatePost} />
         <Route exact path="/privacy-policy" component={PrivacyPolicy} />
         <Route exact path="/terms-conditions" component={TermsConditions} />
         <Route exact path="/about-us" component={AboutUs} />
+        <PrivateRoute exact path="/reset-password" component={ResetPassword} />
         <Route component={NotFound} />
       </Switch>
     </div>

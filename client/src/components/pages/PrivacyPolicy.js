@@ -2,7 +2,7 @@ import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="privacy-policy">
+    <div className="privacy-policy insta-an">
       <h1>Privacy Policy</h1>{" "}
       <p>
         Fastdial Credit built the Fastdial Credit app as a Free

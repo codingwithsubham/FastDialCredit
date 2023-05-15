@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsConditions = () => {
   return (
-    <div className="terms-conditions">
+    <div className="terms-conditions insta-an">
       <h1>Terms &amp; Conditions</h1>{" "}
       <p>
         By downloading or using the app, these terms will automatically apply to

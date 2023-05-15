@@ -26,7 +26,7 @@ const Profile = ({ auth: { user } }) => {
   }
 
   return (
-    <div className="profile">
+    <div className="profile insta-an">
       <div className="prfile-hdr">
         <div className="avatar">
           {user?.kycData?.profile_image ? (
@@ -39,6 +39,7 @@ const Profile = ({ auth: { user } }) => {
           <h2>{user?.name}</h2>
           <h3>Mobile: {user?.mobile}</h3>
           <p>Age: {user?.age}</p>
+          <p>Subscription: {user?.subscription ? user.subscription?.subsEndDate : "Not Subscribed"}</p>
         </div>
       </div>
       <div className="prfile-bdy">

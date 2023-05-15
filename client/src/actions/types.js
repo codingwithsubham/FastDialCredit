@@ -38,6 +38,7 @@ export const GET_BET = "GET_BET";
 export const BET_LOADING = "BET_LOADING";
 export const GET_COMMISSION = "GET_COMMISSION";
 export const CREATE_FEED = "CREATE_FEED";
+export const DELETE_FEED = "DELETE_FEED";
 export const GET_FEED = "GET_FEED";
 export const GET_FEEDS = "GET_FEEDS";
 export const CREATE_ADS = "CREATE_ADS";

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const BottomBar = ({auth: { isAuthenticated, user }, loadUser}) => {
   useEffect(() => {
@@ -11,26 +11,18 @@ const BottomBar = ({auth: { isAuthenticated, user }, loadUser}) => {
   return isAuthenticated && user && (
     <div className="btm-bar">
       <div className="btm-bar-wrap">
-          <Link to="/">
+          <NavLink exact to="/home">
             <i className="fa fa-home"></i>
-            <div className="btm-txt">Home</div>
-          </Link>
-          <Link to="/">
-            <i className="fa fa-money"></i>
-            <div className="btm-txt">Taken</div>
-          </Link>
-          <Link to="/create-post">
-            <i className="fa fa-plus"></i>
-            <div className="btm-txt">Post</div>
-          </Link>
-          <Link to="/">
-            <i className="fa fa-bank"></i>
-            <div className="btm-txt">Given</div>
-          </Link>
-          <Link to="/profile">
+            <div className="btm-txt insta-slide">Home</div>
+          </NavLink>
+          <NavLink exact to="/create-post">
+            <i className="fa fa-pencil-square-o"></i>
+            <div className="btm-txt insta-slide">Post</div>
+          </NavLink>
+          <NavLink exact to="/profile">
             <i className="fa fa-user"></i>
-            <div className="btm-txt">Profile</div>
-          </Link>
+            <div className="btm-txt insta-slide">Profile</div>
+          </NavLink>
         </div>
     </div>
   );
