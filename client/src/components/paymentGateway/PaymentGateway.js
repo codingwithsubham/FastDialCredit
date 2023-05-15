@@ -8,7 +8,6 @@ const PaymentGateway = ({
   amnt,
   type,
   requestPaymentGateway,
-  handleClose,
 }) => {
   const [paymentLink, setPaymentLink] = useState("");
 
@@ -23,9 +22,6 @@ const PaymentGateway = ({
     <div className="pg-styl">
       <div className="pg-popup">
         <div className="pg-element">
-          <div className="close-icon" onClick={handleClose}>
-            X
-          </div>
           <p>Payment Initiated. Do not Close or Go Back.</p>
         </div>
       </div>

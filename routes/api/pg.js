@@ -47,6 +47,7 @@ router.post("/create-order", auth, async (req, res) => {
         },
       }
     );
+    console.log(response);
     return res.json(response.data);
   } catch (error) {
     console.log(error);

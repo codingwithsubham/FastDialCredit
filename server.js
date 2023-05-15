@@ -13,6 +13,7 @@ app.use(express.static("uploads"));
 
 // Define Routes
 app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/pg", require("./routes/api/pg"));
 app.use("/api/feed", require("./routes/api/feed"));
 app.use("/api/ads", require("./routes/api/ads"));
 app.use("/api/media", require("./routes/api/media"));
