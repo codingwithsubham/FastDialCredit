@@ -47,7 +47,6 @@ router.post("/create-order", auth, async (req, res) => {
         },
       }
     );
-    console.log(response);
     return res.json(response.data);
   } catch (error) {
     console.log(error);
@@ -90,62 +89,63 @@ router.post("/order-success", async (req, res) => {
 // @access Private
 const handlePaymentReturn = async (pg) => {
   const { type, user } = pg;
+  let userSub = await User.findById(user);
   const date = new Date();
   //conditional rendering
   switch (type) {
     case TYPE.BORROWER_SUB: {
       const endndDate = addDays(date, 365);
-      user.subscription = {
+      userSub.subscription = {
         susbsType: TYPE.BORROWER_SUB,
         subsEndDate: endndDate.toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
         }),
       };
-      await user.save();
+      await userSub.save();
       return true;
     }
     case TYPE.LENDER_SUB_MONTHLY: {
       const endndDate = addDays(date, 30);
-      user.subscription = {
+      userSub.subscription = {
         susbsType: TYPE.LENDER_SUB_MONTHLY,
         subsEndDate: endndDate.toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
         }),
       };
-      await user.save();
+      await userSub.save();
       return true;
     }
     case TYPE.LENDER_SUB_QUATERLY: {
       const endndDate = addDays(date, 90);
-      user.subscription = {
+      userSub.subscription = {
         susbsType: TYPE.LENDER_SUB_QUATERLY,
         subsEndDate: endndDate.toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
         }),
       };
-      await user.save();
+      await userSub.save();
       return true;
     }
     case TYPE.LENDER_SUB_YEARLY: {
       const endndDate = addDays(date, 365);
-      user.subscription = {
+      userSub.subscription = {
         susbsType: TYPE.LENDER_SUB_YEARLY,
         subsEndDate: endndDate.toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
         }),
       };
-      await user.save();
+      await userSub.save();
       return true;
     }
     case TYPE.ECO_LENDER_SUB: {
       const endndDate = addDays(date, 30);
-      user.subscription = {
+      userSub.subscription = {
         susbsType: TYPE.ECO_LENDER_SUB,
         subsEndDate: endndDate.toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
         }),
       };
-      await user.save();
+      await userSub.save();
       return true;
     }
     default:
