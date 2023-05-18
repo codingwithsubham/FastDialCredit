@@ -42,8 +42,10 @@ export const register = (body) => async (dispatch) => {
     });
     dispatch(loadUser());
   } catch (err) {
+    const errors = err.response.data.errors;
     dispatch({
-      type: SETTINGS_LOADING_ERROR,
+      type: LOGIN_FAIL,
+      payload: errors,
     });
   }
 };

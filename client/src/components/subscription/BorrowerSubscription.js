@@ -16,7 +16,7 @@ const BorrowerSubscription = () => {
         Subscribe Now
       </button>
       {openPG && (
-        <PaymentGateway openPG={openPG} amnt={1} type={TYPE.BORROWER_SUB} handleClose={handleClose} />
+        <PaymentGateway openPG={openPG} amnt={99} type={TYPE.BORROWER_SUB} handleClose={handleClose} />
       )}
     </div>
   );

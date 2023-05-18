@@ -112,6 +112,7 @@ const handlePaymentReturn = async (pg) => {
           timeZone: "Asia/Kolkata",
         }),
       };
+      userSub.role = ["lender"]
       await userSub.save();
       return true;
     }

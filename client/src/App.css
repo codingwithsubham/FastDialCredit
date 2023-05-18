@@ -4,6 +4,20 @@ div#root {
   background: #111;
 }
 
+.lgin-wrpr {
+  width: 100%;
+  z-index: 99999999;
+  position: relative;
+}
+
+.helper-texts {
+  position: fixed;
+  bottom: 30px;
+  left: 0px;
+  width: -webkit-fill-available;
+  text-align: center;
+}
+
 section.container {
   width: 100%;
   height: auto;
@@ -24,15 +38,13 @@ section.container {
 }
 
 .bg-login {
-  background: linear-gradient(45deg, #ffeb3b, #e91e63);
   background-size: cover;
-  background-position: top;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -999;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: url("./static/bg-lg.jpg")
 }
 
 .welcome-screen img.logo {
@@ -387,7 +399,7 @@ div#main {
 }
 
 .score-indecator {
-  width: 45%;
+  width: 42%;
 }
 
 .score-details {
@@ -398,7 +410,7 @@ div#main {
 }
 
 .score-details {
-  width: 45%;
+  width: 42%;
   padding: 20px;
 }
 
@@ -419,7 +431,7 @@ div#main {
 }
 
 .actns-itm {
-  width: 25%;
+  width: 24%;
   background: #1a1a1a;
   color: #fff;
   padding: 10px;
@@ -428,7 +440,7 @@ div#main {
   border-radius: 5px;
   display: flex;
   align-items: flex-end;
-  font-size: 12px;
+  font-size: 9px;
   cursor: none;
   text-decoration: none;
 }
@@ -436,7 +448,7 @@ div#main {
 .actns-itm strong {
   position: absolute;
   font-size: 50px;
-  color: #f5e9f775;
+  color: #f5e9f72b;
 }
 
 .not-found {
@@ -775,7 +787,7 @@ p {
   margin: 5px;
   border-radius: 5px;
   background-color: #1f1f1f;
-  padding: 20px 10px;
+  padding: 20px 10px 0px;
   width: 45%;
 }
 
@@ -818,6 +830,9 @@ p {
 
 .feed-ftr {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .feed-ftr .btn {
@@ -886,23 +901,30 @@ p {
 }
 
 .stat-lbl {
-  position: relative;
-  float: right;
+  position: absolute;
   text-transform: capitalize;
   background: #8bc34a;
   padding: 5px 10px;
   border-radius: 2px;
   color: #000;
   font-weight: 600;
-  margin-bottom: -10px;
-  margin-top: -20px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 10px 0px #000;
+  margin-left: 32%;
+  font-size: 12px;
 }
 
 .feed-ftr a {
   font-size: 25px;
   color: #ff9800;
   text-decoration: none;
-  margin: 0px 10px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 2px 10px;
+  padding: 10px;
+  background: #1a1a1a;
 }
 
 .brrwr-sbs i {
@@ -913,7 +935,66 @@ p {
   text-align: left;
 }
 
+.feed-desc p {
+  text-transform: uppercase;
+}
+
+.cnfrm-bx-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: -webkit-fill-available;
+  z-index: 99999999999;
+  background: #000000db;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.cnfrm-bx {
+  width: 80%;
+  background: #1a1a1a;
+  padding: 5%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px #000;
+  text-align: center;
+}
+
+.cnfrm-bx i {
+  font-size: 50px;
+  color: orange;
+  text-shadow: 0px 0px 10px #000;
+}
+
+.cnfrm-bx h1 {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.cnfrm-bx .btn-grp {
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button.btn.cncl {
+  background-color: transparent;
+  color: #fff;
+}
+
+button.btn.cnfrm {
+  background-color: green;
+  color: #fff;
+}
+
 @media only screen and (max-width: 600px) {
+  .stat-lbl {
+    right: 3%;
+    margin-left: none;
+    font-size: 16px;
+  }
   .box-alert {
     position: fixed !important;
     right: 10px;
@@ -944,7 +1025,7 @@ p {
     box-shadow: none;
   }
   img.anime {
-    width: 60%;
+    width: 25%;
   }
   .not-found img {
     width: 80%;
@@ -987,5 +1068,11 @@ p {
   }
   .btm-bar-wrap a {
     cursor: none;
+  }
+  .actns-itm {
+    width: 25%;
+    font-size: 14px;
+    cursor: none;
+    text-decoration: none;
   }
 }

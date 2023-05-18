@@ -15,14 +15,13 @@ const {
   JWT_SECRET,
   EXPIRES_IN,
   STATUS_CODE_500,
-  EMAIL_REQUIRED_INVALID,
-  EMAIL,
   PASSWORD,
   PASSWORD_INVALID,
   INVALID_CREDENTIALS,
   STATUS_CODE_400,
   MOBILE,
   MOBILE_REQUIRED,
+  USER_EXSISTS,
 } = require("../../common/constant/constants");
 const { HEADER } = require("../../common/constant/api-constants");
 
@@ -31,14 +30,18 @@ const { HEADER } = require("../../common/constant/api-constants");
 // @access Public
 router.post("/register", async (req, res) => {
   //pulling the data
-  const { name, mobile, age, password, role } = req.body;
+  const { name, mobile, pincode, password, role } = req.body;
+  const checkUser = await User.findOne({mobile: mobile});
+    if(checkUser){
+      return res.status(STATUS_CODE_400).send({ errors: [{ msg: USER_EXSISTS }] });
+    }
   try {
     //creating a user
     const newUser = {
       mobile: mobile,
       password: password,
       name: name,
-      age: age,
+      pincode: pincode,
       role: role,
     };
     //creating a new user Data Object

@@ -12,6 +12,45 @@ code {
     monospace;
 }
 
+.btn.drk {
+  background: #1a1a1a !important;
+  color: #fff !important;
+}
+
+.btn.dngr {
+  background: red !important;
+  color: #fff !important;
+}
+
+.btn.lgt {
+  background: #fff !important;
+}
+
+.sbs-btns {
+  margin: 10px 0px;
+}
+
+.btn.scss {
+  background-color: green !important;
+  color: #fff !important;
+}
+
+.btn.lgin {
+  width: 50%;
+  margin: 1%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px;
+}
+
 button.btn.icn-btn {
   width: 100%;
   height: auto;

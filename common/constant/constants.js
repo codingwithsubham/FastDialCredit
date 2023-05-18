@@ -19,6 +19,7 @@ module.exports = {
   INVALID_CREDENTIALS: "Invalid Credentials",
   MOBILE_REQUIRED: "Mobile Number Required",
   BAD_REQUEST: "Bad Request",
+  USER_EXSISTS: "User Already Exsists",
 
   //AUTH
   INVALID_TOKEN: "Token is Invalid.",

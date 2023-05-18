@@ -38,8 +38,8 @@ const Profile = ({ auth: { user } }) => {
         <div className="dtls">
           <h2>{user?.name}</h2>
           <h3>Mobile: {user?.mobile}</h3>
-          <p>Age: {user?.age}</p>
-          <p>Subscription: {user?.subscription ? user.subscription?.subsEndDate : "Not Subscribed"}</p>
+          <p>Location: {user?.pincode}</p>
+          <p>Plan: {user?.subscription ? user.subscription?.subsEndDate : "Not Subscribed"}</p>
         </div>
       </div>
       <div className="prfile-bdy">

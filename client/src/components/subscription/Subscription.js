@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import BorrowerSubscription from "./BorrowerSubscription";
+import LenderSubscription from "./LenderSubscription";
 
 const Subscription = () => {
   const [isLender, setLender] = useState(false);
@@ -14,11 +15,11 @@ const Subscription = () => {
           <h1>Subscribe As</h1>
           <div className="prfile-bdy">
             <button
-              className="btn icn-btn big"
+              className="btn icn-btn big dngr"
               onClick={() => setLender(!isLender)}
             >
               <i className="fa fa-shield"></i>
-              <p>I give Loans/Insurance</p>
+              <p>I'm an Company Agent</p>
             </button>
             <button
               className="btn icn-btn big"
@@ -30,9 +31,8 @@ const Subscription = () => {
           </div>
         </Fragment>
       )}
-      {
-        isBorrower && <BorrowerSubscription />
-      }
+      {isBorrower && <BorrowerSubscription />}
+      {isLender && <LenderSubscription />}
     </div>
   );
 };

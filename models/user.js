@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true,
   }],
-  age: {
+  pincode: {
     type: String,
     require: true
   },

@@ -22,11 +22,13 @@ const CreatePost = ({ feed: { feeds }, getFeedsByCurrentUser, createFeed }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    createFeed(formData);
-    setFormData({
-      amnt: 0,
-      cat: "",
-    });
+    if(amnt > 0 && cat !== ""){
+      createFeed(formData);
+      setFormData({
+        amnt: 0,
+        cat: "",
+      });
+    }
   };
 
   return (
