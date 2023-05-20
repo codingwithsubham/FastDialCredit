@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Ad = ({ data }) => {
   return (
     <div className="ad">
-      <a href={data?.redirectUrl}>
+      <Link to={data?.redirectUrl}>
         <img src={data?.imgUrl} alt="" />
-      </a>
+      </Link>
     </div>
   );
 };

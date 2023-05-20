@@ -18,7 +18,6 @@ router.post("/create", auth, async (req, res) => {
       amnt: amnt,
       user: req.user.id,
       date: d.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
-      status: "not-viewed",
       category: cat,
       pin: req.user.userData?.kycData?.zip,
     });

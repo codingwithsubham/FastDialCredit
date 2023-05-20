@@ -10,7 +10,6 @@ const ResetPassword = ({ resetPassword }) => {
   });
   const [type, SetType] = useState(false);
   const [error, SetError] = useState("");
-  let dt = new Date();
   const { password, confPass } = formdata;
   const handleChange = (e) => {
     setFormdata({ ...formdata, [e.target.name]: e.target.value });

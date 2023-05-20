@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { isGreaterDate } from "../../actions/common";
 import LoadingPage from "../layout/LoadingPage";
 
-const RestrictedRoute = ({
+const BorrowerRoute = ({
   component: Component,
   auth: { isAuthenticated, user, loading },
   ...rest
@@ -18,15 +18,19 @@ const RestrictedRoute = ({
       ) : localStorage.token && loading ? (
         <LoadingPage />
       ) : user && isGreaterDate(user?.subscription?.subsEndDate) ? (
-        <Component {...props} />
-      ) : (!loading &&
-        <Redirect to="/subscribe" />
+        user?.role?.includes("user") ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/not-found" />
+        )
+      ) : (
+        !loading && <Redirect to="/subscribe" />
       )
     }
   />
 );
 
-RestrictedRoute.propTypes = {
+BorrowerRoute.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
@@ -34,4 +38,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(RestrictedRoute);
+export default connect(mapStateToProps)(BorrowerRoute);

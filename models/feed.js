@@ -17,15 +17,17 @@ const FeedSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  status: {
-    type: String,
-    require: true,
-  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",
     require: true,
   },
+  feedView: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    }
+  ],
   additional: {
     type: Object,
   },

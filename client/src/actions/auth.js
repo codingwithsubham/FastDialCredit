@@ -80,10 +80,26 @@ export const logout = () => async (dispatch) => {
   window.location.reload();
 };
 
-// update Bank
-export const updateUserBank = (body) => async (dispatch) => {
+// update Work
+export const updateLenderWork = (body) => async (dispatch) => {
   try {
-    const res = await axios.post("/api/auth/update-user/bank", body, API_CONFIG);
+    const res = await axios.post("/api/auth/update-user/work", body, API_CONFIG);
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data,
+    });
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch({
+      type: SETTINGS_LOADING_ERROR,
+    });
+  }
+};
+
+// update Prof pincodes
+export const updateLenderProf = (body) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/auth/update-user/prof", body, API_CONFIG);
     dispatch({
       type: USER_LOADED,
       payload: res.data,

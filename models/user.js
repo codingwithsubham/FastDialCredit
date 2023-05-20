@@ -38,6 +38,9 @@ const UserSchema = new mongoose.Schema({
   bankDetails: {
     type: Object,
   },
+  lenderData: {
+    type: Object,
+  }
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

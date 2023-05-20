@@ -11,18 +11,18 @@ const LenderSubscription = () => {
   };
 
   const handleBtnClick = (am) => {
-    if (am === 1) {
+    if (am === 1180) {
       setType(TYPE.LENDER_SUB_MONTHLY);
       setAmnt(am);
-    } else if (am === 2) {
+    } else if (am === 2950) {
       setType(TYPE.LENDER_SUB_QUATERLY);
       setAmnt(am);
-    } else if (am === 3) {
+    } else if (am === 8850) {
       setType(TYPE.LENDER_SUB_YEARLY);
       setAmnt(am);
     } else {
-      setType(TYPE.LENDER_SUB_MONTHLY);
-      setAmnt(1);
+      setType(TYPE.LENDER_SUB_YEARLY);
+      setAmnt(8850);
     }
     setOpenPG(true);
   };
@@ -31,24 +31,25 @@ const LenderSubscription = () => {
     <div className="brrwr-sbs insta-an">
       <i className="fa fa-check success"></i>
       <p>To Explore More and get Quick Assistance Subscribe now</p>
+      <p>18% GST Applicable</p>
       <div className="sbs-btns">
         <button
           className="btn icn-btn big dngr"
-          onClick={() => handleBtnClick(1)}
+          onClick={() => handleBtnClick(1180)}
         >
           Subscribe Now 1000/Month
         </button>
         <button
           className="btn icn-btn big lgt"
-          onClick={() => handleBtnClick(2)}
+          onClick={() => handleBtnClick(2950)}
         >
-          Subscribe Now 2500/3Month
+          Subscribe Now 2500/3Months
         </button>
         <button
           className="btn icn-btn big scss"
-          onClick={() => handleBtnClick(2)}
+          onClick={() => handleBtnClick(8850)}
         >
-          Subscribe Now 7500/12Month
+          Subscribe Now 7500/12Months
         </button>
       </div>
 

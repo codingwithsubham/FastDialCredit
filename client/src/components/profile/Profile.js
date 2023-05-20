@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import KYCForm from "./KYCForm";
 import KYCData from "./KYCData";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { b64toBlob } from "../../actions/common";
 import PersonalData from "./PersonalData";
+import WorkDetails from "./WorkDetails";
+import ProfileDetails from "./ProfileDetails";
 
 const Profile = ({ auth: { user } }) => {
   const [openKyc, setOpenKyc] = useState(false);
   const [openPersonal, setOpenPersonal] = useState(false);
+  const [openWork, setOpenWork] = useState(false);
+  const [openProf, setOpenProf] = useState(false);
   const [openKycEdit, setOpenKycEdit] = useState(false);
 
   const handleEditKyc = () => {
@@ -43,19 +47,34 @@ const Profile = ({ auth: { user } }) => {
         </div>
       </div>
       <div className="prfile-bdy">
-        <div className="bdy-itm" onClick={() => setOpenKyc(!openKyc)}>
+        <div className={`bdy-itm ${openKyc ? "active" : ""}`} onClick={() => setOpenKyc(!openKyc)}>
           <i className="fa fa-shield"></i>
           <p>KYC Details</p>
         </div>
-        <div className="bdy-itm" onClick={() => setOpenPersonal(!openPersonal)}>
+        <div className={`bdy-itm ${openPersonal ? "active" : ""}`} onClick={() => setOpenPersonal(!openPersonal)}>
           <i className="fa fa-user"></i>
           <p>Personal Details</p>
         </div>
+        {
+          user?.role?.includes("lender") &&
+          <Fragment>
+            <div className={`bdy-itm ${openWork ? "active" : ""}`} onClick={() => setOpenWork(!openWork)}>
+          <i className="fa fa-bank"></i>
+          <p>Work Details</p>
+        </div>
+        <div className={`bdy-itm ${openProf ? "active" : ""}`} onClick={() => setOpenProf(!openProf)}>
+          <i className="fa fa-briefcase"></i>
+          <p>Profile Details</p>
+        </div>
+          </Fragment>
+        }
       </div>
       <div className="prfile-dtls">
         {openKycEdit && <KYCForm handleEditKyc={handleEditKyc} />}
         {openKyc && <KYCData handleEditKyc={handleEditKyc} />}
         {openPersonal && <PersonalData handleEditKyc={handleEditKyc} />}
+        {openWork && <WorkDetails handleEditKyc={handleEditKyc} />}
+        {openProf && <ProfileDetails handleEditKyc={handleEditKyc} />}
       </div>
     </div>
   );

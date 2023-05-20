@@ -4,27 +4,38 @@ import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { NavLink } from "react-router-dom";
 
-const BottomBar = ({auth: { isAuthenticated, user }, loadUser}) => {
+const BottomBar = ({ auth: { isAuthenticated, user }, loadUser }) => {
   useEffect(() => {
     loadUser();
   }, [loadUser]);
-  return isAuthenticated && user && (
-    <div className="btm-bar">
-      <div className="btm-bar-wrap">
+  return (
+    isAuthenticated &&
+    user && (
+      <div className="btm-bar">
+        <div className="btm-bar-wrap">
           <NavLink exact to="/home">
             <i className="fa fa-home"></i>
             <div className="btm-txt insta-slide">Home</div>
           </NavLink>
-          <NavLink exact to="/create-post">
-            <i className="fa fa-pencil-square-o"></i>
-            <div className="btm-txt insta-slide">Post</div>
-          </NavLink>
+          {user?.role?.includes("user") && (
+            <NavLink exact to="/create-post">
+              <i className="fa fa-pencil-square-o"></i>
+              <div className="btm-txt insta-slide">Post</div>
+            </NavLink>
+          )}
+          {user?.role?.includes("lender") && (
+            <NavLink exact to="/browse">
+              <i className="fa fa-search"></i>
+              <div className="btm-txt insta-slide">Browse</div>
+            </NavLink>
+          )}
           <NavLink exact to="/profile">
             <i className="fa fa-user"></i>
             <div className="btm-txt insta-slide">Profile</div>
           </NavLink>
         </div>
-    </div>
+      </div>
+    )
   );
 };
 

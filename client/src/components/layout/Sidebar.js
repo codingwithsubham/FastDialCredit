@@ -21,21 +21,21 @@ const Sidebar = ({
   auth: { isAuthenticated, user },
   layout: { isSidebarOpen },
   closeSidebar,
-  openSidebar
+  openSidebar,
 }) => {
   const [width] = useWindowSize();
 
-  if(width >= 600){
-    if(!isSidebarOpen && isAuthenticated){
+  if (width >= 600) {
+    if (!isSidebarOpen && isAuthenticated) {
       openSidebar();
     }
   }
 
   const handleCloseSidebar = () => {
-    if(width <= 600){
+    if (width <= 600) {
       closeSidebar();
     }
-  }
+  };
   return (
     isAuthenticated &&
     user && (
@@ -50,7 +50,10 @@ const Sidebar = ({
       >
         <div className="sidebar-content">
           {width <= 600 && (
-            <button className="sidebar-closebtn" onClick={() => handleCloseSidebar()}>
+            <button
+              className="sidebar-closebtn"
+              onClick={() => handleCloseSidebar()}
+            >
               x
             </button>
           )}
@@ -68,22 +71,45 @@ const Sidebar = ({
             <NavLink exact to="/home" onClick={() => handleCloseSidebar()}>
               Home
             </NavLink>
-            <NavLink exact to="/create-post" onClick={() => handleCloseSidebar()}>
-              Post
-            </NavLink>
-            {user?.role?.includes("ad") && <NavLink exact to="/create-ads" onClick={() => handleCloseSidebar()}>
-              Ads
-            </NavLink>}
+
+            {user?.role?.includes("user") && (
+              <NavLink
+                exact
+                to="/create-post"
+                onClick={() => handleCloseSidebar()}
+              >
+                Post
+              </NavLink>
+            )}
+
+            {user?.role?.includes("lender") && (
+              <NavLink
+                exact
+                to="/create-ads"
+                onClick={() => handleCloseSidebar()}
+              >
+                Ads
+              </NavLink>
+            )}
+            
             <NavLink exact to="/profile" onClick={() => handleCloseSidebar()}>
               Profile
             </NavLink>
             <NavLink exact to="/about-us" onClick={() => handleCloseSidebar()}>
               About
             </NavLink>
-            <NavLink exact to="/privacy-policy" onClick={() => handleCloseSidebar()}>
+            <NavLink
+              exact
+              to="/privacy-policy"
+              onClick={() => handleCloseSidebar()}
+            >
               Privacy
             </NavLink>
-            <NavLink exact to="/terms-conditions" onClick={() => handleCloseSidebar()}>
+            <NavLink
+              exact
+              to="/terms-conditions"
+              onClick={() => handleCloseSidebar()}
+            >
               Terms
             </NavLink>
           </div>

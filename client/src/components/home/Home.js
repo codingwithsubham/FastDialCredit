@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { openSidebar } from "../../actions/layout";
 import BorrowerHome from "../borrower/BorrowerHome";
+import LenderHome from "../lender/LenderHome";
 //import Ads from "../ads/Ads";
 
 const Home = ({ auth: { user }, loadUser }) => {
@@ -13,7 +14,8 @@ const Home = ({ auth: { user }, loadUser }) => {
   return (
     <Fragment>
       <div className="hme insta-an">
-        <BorrowerHome/>
+        {user.role.includes('user') && <BorrowerHome/>}
+        {user.role.includes('lender') && <LenderHome user={user}/>}
       </div>
     </Fragment>
   );

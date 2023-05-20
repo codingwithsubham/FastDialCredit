@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 import { forgotPassword } from "../../actions/auth";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
 
 const ForgotPassword = ({ forgotPassword }) => {
   const [formdata, setFormdata] = useState({

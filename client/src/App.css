@@ -441,8 +441,18 @@ div#main {
   display: flex;
   align-items: flex-end;
   font-size: 9px;
-  cursor: none;
+  cursor: pointer;
   text-decoration: none;
+  transition: 0.9s;
+}
+
+.actns-itm:hover {
+  background-color: #ddd;
+  color: #111;
+}
+
+.actns-itm:hover strong {
+  color: #eee;
 }
 
 .actns-itm strong {
@@ -640,13 +650,14 @@ p {
   display: flex;
   height: 100px;
   background: #1b1b1b;
-  margin: 0% 1%;
+  margin: 1%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
+  transition: 0.9s;
 }
 
 .prfile-bdy {
@@ -937,6 +948,7 @@ p {
 
 .feed-desc p {
   text-transform: uppercase;
+  text-align: left;
 }
 
 .cnfrm-bx-wrap {
@@ -989,7 +1001,115 @@ button.btn.cnfrm {
   color: #fff;
 }
 
+.about-us, .privacy-policy, .terms-conditions  {
+  padding: 20px;
+  text-align: left;
+}
+
+.about-us, .privacy-policy, .terms-conditions p {
+  text-align: left;
+}
+
+.load-page img.spinner {
+  width: 30%;
+}
+
+.load-page {
+  width: -webkit-fill-available;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.load-page .spinner-wrapper {
+  text-align: center;
+}
+
+.load-page h1 {
+  font-size: 20px;
+}
+
+.bdy-itm.active {
+  background: orange;
+  color: #000;
+}
+
+.wrk-dtls {
+  width: 92%;
+  padding: 3%;
+  background: #1d1d1d;
+  margin: 1%;
+  border-radius: 5px;
+}
+
+.wrk-dtls .btn {
+  margin: 10px 0px 5px;
+  width: 100px;
+}
+
+.wrk-dtls i {
+  font-size: 25px;
+  color: orange;
+  position: relative;
+  float: right;
+}
+
+.pin-codes {
+  display: flex;
+  margin: 10px 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.code {
+  background-color: #9C27B0;
+  margin: 1%;
+  padding: 1% 2%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px #000;
+  width: 14%;
+  text-align: center;
+}
+
+.lndr-wraper {
+  width: -webkit-fill-available;
+  padding: 0px 10px;
+}
+
+.lndr-wraper .pin-codes {
+  justify-content: flex-start;
+}
+
+.lndr-wraper h2 {
+  margin: 2px 0px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.info-card {
+  background-color: #1d1d1d;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.feed-wrap {
+  width: 100%;
+}
+
+.feed-wrap .feeds {
+  width: -webkit-fill-available;
+  padding: 1% 0% !important;
+}
+
+
 @media only screen and (max-width: 600px) {
+  .bdy-itm {
+    cursor: none;
+  }
   .stat-lbl {
     right: 3%;
     margin-left: none;
